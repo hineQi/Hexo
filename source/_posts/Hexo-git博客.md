@@ -1,6 +1,7 @@
 ---
 title: Hexo + git线上版本管理建立个人博客
 date: 2019-12-13 10:23:28
+description: 使用版本管理及开源Hexo创建免费个人博客流程
 tags: 
     - Hexo
     - 博客
@@ -29,6 +30,7 @@ Github生成仓库Pages：注意`只能是 name.github.io格式仓库`<br/>
 ##### Hexo相关命令
 初始化：空文件夹下执行>>>hexo init
 创建新文章页：根目录中>>>hexo new "文章名字"
+创建功能文件：根目录中>>>hexo new page categories/tags (创建Hexo功能文件)
 清空静态页面：根目录中>>>hexo clean (部署不生效可以先clean下)
 生成静态页面：根目录中>>>hexo g
 启动本地服务：根目录中>>>hexo s
@@ -69,17 +71,19 @@ subtitle: hineqi.github.io（名字下显示的小标题）
 description: 记录下自己的动态（描述内容）
 keywords: （搜录百度google后的搜索关键词）
 author: 齐海阳（作者）
-language: zh-CN（网站使用的语言,默认是英语）
+language: zh-Hans（网站使用的语言,默认是英语(主题languages文件夹下)）
 timezone: ''（网站时区，Hexo 默认使用电脑的时区）
 ```
 
 ##### 分类设置
 参考：[Hexo 一篇文章多个 categories](https://www.jianshu.com/p/bff1b1845ac9)
 * 在项目根目录下，执行下面的命令行，新建分类页面，然后会在项目根目录下的 source 文件夹中新建一个 categories 文件夹。
+```
 hexo new page categories
+```
 * 打开 categories 文件夹中的 index.md 文件，添加 type 字段，设置为 “categories”。
 * 接着到主题文件夹下的 _config.yml 配置文件下，找到 menu 模块，把 categories 的注释给去掉。<br/>
-`tags同理 注意：所有文章头部都要添加categories及内容就可以自动分类`
+`tags同理 注意：所有文章头部都要添加categories及内容就可以自动分类，zh-Hans.yml语言下需要把menu 模块空格去掉`
 ```
     ---
     title: Hexo + git线上版本管理建立个人博客
@@ -177,3 +181,6 @@ img:hover {
   }
 }
 ```
+###### 右上角fork me设置
+- 在[GitHub Corners](http://tholman.com/github-corners/)上选择喜欢的挂饰，复制代码
+- 打开主题目录下layout文件夹下_layout.swig,`<div class="headband"></div>标签后`粘贴上面代码，href改为自己github链接
