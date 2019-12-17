@@ -8,6 +8,8 @@ tags:
 categories: 
     - [学习,博客]
     - [参考文件]
+top: 1
+copyright: true
 ---
 ## 搭建个人博客
 参考文章：
@@ -185,7 +187,8 @@ img:hover {
 - 在[GitHub Corners](http://tholman.com/github-corners/)上选择喜欢的挂饰，复制代码
 - 打开主题目录下layout文件夹下_layout.swig,`<div class="headband"></div>标签后`粘贴上面代码，href改为自己github链接
 ###### 动态背景
-- 打开主题目录下layout文件夹的_layout.swig,文末加上下面代码
+- 修改主题目录下_config.yml下的canvas_nest为true
+- 或打开主题目录下layout文件夹的_layout.swig,文末加上下面代码
 ```
 <!-- 动态背景 -->
 <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
@@ -214,3 +217,242 @@ body{
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 ```
 ###### 首页文章预览设置
+- `<!--more-->`手动切断
+- 添加`description`
+    在文章的 front-matter 中添加 description 和 photos 字段
+- 自动形成摘要，在主题目录下_config.yml添加
+```
+auto_excerpt:
+  enable: true
+  length: 150
+```
+###### 修改文章内链接文本样式
+修改主题目录下/source/css/_common/components/post/post.styl文末添加
+```
+// 文章内链接文本样式
+.post-body p a{
+  color: #0593d3; //原始链接颜色
+  border-bottom: none;
+  border-bottom: 1px solid #0593d3; //底部分割线颜色
+  &:hover {
+    color: #fc6423; //鼠标经过颜色
+    border-bottom: none;
+    border-bottom: 1px solid #fc6423; //底部分割线颜色
+  }
+}
+```
+###### 修改文章底部标签样式
+修改主题目录下/layout/_macro/post.swig中，搜索`rel="tag">#`，将`#`替换成`<i class="fa fa-tag"></i>`
+###### 在文章末尾添加“文章结束”标记
+- 主题目录下/layout/_macro文件夹中新建passage-end-tag.swig文件
+- passage-end-tag.swig中添加以下内容
+```
+<div>
+    {% if not is_index %}
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    {% endif %}
+</div>
+```
+- 修改主题目录下/layout/_macro/post.swig，在`post-body`之后，`post-footer`之前
+```
+<div>
+  {% if not is_index %}
+    {% include 'passage-end-tag.swig' %}
+  {% endif %}
+</div>
+```
+- 修改主题目录下/_config.yml，末尾添加：
+```
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+  enabled: true
+```
+###### 主页文章添加阴影效果
+主题目录下/source/css/_custom/custom.styl，添加以下代码
+```
+// 主页文章添加阴影效果
+ .post {
+   margin-top: 60px;
+   margin-bottom: 60px;
+   padding: 25px;
+   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+  }
+```
+###### 添加网页顶部进度加载条
+主题目录下_config.yml，搜索`pace`
+###### RSS设置
+- 在根目录安装hexo插件
+```
+npm install --save hexo-generator-feed
+```
+- 安装后在根目录_config.yml末尾加下面代码
+```
+# Extensions
+## Plugins: http://hexo.io/plugins/
+plugins: hexo-generate-feed
+```
+- 在主题目录下_config.yml中找到rss，在后面加上 /atom.xml
+###### 社交小图标设置
+- 在主题目录下_config.yml中搜索Social
+- 图标可以在[Font Awesome Icon](https://fontawesome.com/icons?from=io)查找
+###### 友情链接设置
+- 在主题目录下_config.yml中搜索links_title
+###### 去掉底部Hexo相关信息
+在主题目录下/layout/_partials/footer.swig注释相关代码
+###### 添加底部桃心
+- 直接修改主题目录下_config.yml中的footer下icon
+- 或在主题目录下/layout/_partials/footer.swig，搜索with-love，在[fontawesom](https://fontawesome.com/icons?d=gallery&q=heart)上找到喜欢的图标
+###### 设置网站Favicon
+- 在[阿里巴巴矢量图库](https://www.iconfont.cn/?spm=a313x.7781069.1998910419.d4d0a486a)中找图片替换主题目录下/source/images里三张图
+`apple-touch-icon-next.png`,`favicon-16x16-next.png`,`favicon-32x32-next.png`
+- 或修改主题目录下_config.yml的favicon
+###### 博客置顶设置
+- 安装插件
+```
+npm uninstall hexo-generator-index --save
+npm install hexo-generator-index-pin-top --save
+```
+- 在置顶文章头部添加`top`,数值越大越靠前
+```
+---
+title: this is my first blog
+date: 2019-04-14
+top: 100
+---
+```
+- 主题目录下/layout/_macro/post.swig，定位到post-header
+```
+{% if post.top %}
+  <i class="fa fa-thumb-tack"></i>
+  <font color=7D26CD>置顶</font>
+{% endif %}
+```
+###### 在文章底部增加版权信息
+- 在主题目录下/layout/_macro/下添加文件`my-copyright.swig`
+```
+{% if page.copyright %}
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="{{ url_for(page.path) }}">{{ page.title }}</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 {{ theme.author }} 的个人博客">{{ theme.author }}</a></p>
+  <p><span>发布时间:</span>{{ page.date.format("YYYY年MM月DD日 - HH:MM") }}</p>
+  <p><span>最后更新:</span>{{ page.updated.format("YYYY年MM月DD日 - HH:MM") }}</p>
+  <p><span>原始链接:</span><a href="{{ url_for(page.path) }}" title="{{ page.title }}">{{ page.permalink }}</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="{{ page.permalink }}"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+{% endif %}
+```
+- 在主题目录下/source/css/_common/components/post下添加文件`my-post-copyright.styl`
+```
+.my_post_copyright {
+  width: 85%;
+  max-width: 45em;
+  margin: 2.8em auto 0;
+  padding: 0.5em 1.0em;
+  border: 1px solid #d3d3d3;
+  font-size: 0.93rem;
+  line-height: 1.6em;
+  word-break: break-all;
+  background: rgba(255,255,255,0.4);
+}
+.my_post_copyright p{margin:0;}
+.my_post_copyright span {
+  display: inline-block;
+  width: 5.2em;
+  color: #b5b5b5;
+  font-weight: bold;
+}
+.my_post_copyright .raw {
+  margin-left: 1em;
+  width: 5em;
+}
+.my_post_copyright a {
+  color: #808080;
+  border-bottom:0;
+}
+.my_post_copyright a:hover {
+  color: #a3d2a3;
+  text-decoration: underline;
+}
+.my_post_copyright:hover .fa-clipboard {
+  color: #000;
+}
+.my_post_copyright .post-url:hover {
+  font-weight: normal;
+}
+.my_post_copyright .copy-path {
+  margin-left: 1em;
+  width: 1em;
+  +mobile(){display:none;}
+}
+.my_post_copyright .copy-path:hover {
+  color: #808080;
+  cursor: pointer;
+}
+```
+- 修改主题目录下/layout/_macro/post.swig，`wechat_subscriber`上面
+```
+<div>
+      {% if not is_index %}
+        {% include 'my-copyright.swig' %}
+      {% endif %}
+</div>
+```
+- 在主题文件/source/css/_common/components/post/post.styl末尾添加
+```
+@import "my-post-copyright"
+```
+- 在文章头部添加`copyright`
+```
+---
+title: Hexo-NexT主题配置
+date: 2018-01-20 20:41:08
+categories: Hexo
+tags:
+- Hexo
+- NexT
+top: 100
+copyright: true
+---
+```
+###### 文章代码主题设置
+主题目录下_config.yml，highlight_theme
+
+## 部署个人博客
+- 在代码线上管理复制仓库地址
+- 项目根目录_config.yml，修改deploy值
+```
+deploy:
+  type: git
+  repo: git@github.com:hineQi/hineqi.github.io.git
+  branch: master
+```
+- 项目根目录，打开Git Bash
+```
+git config --global user.name空格+你的码云的名字
+git config --global user.email空格+你的码云的邮箱
+```
+- 安装`hexo-deployer-git`
+```
+npm install hexo-deployer-git --save
+```
