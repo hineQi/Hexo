@@ -76,6 +76,7 @@ timezone: ''（网站时区，Hexo 默认使用电脑的时区）
 ##### 分类设置
 参考：[Hexo 一篇文章多个 categories](https://www.jianshu.com/p/bff1b1845ac9)
 * 在项目根目录下，执行下面的命令行，新建分类页面，然后会在项目根目录下的 source 文件夹中新建一个 categories 文件夹。
+hexo new page categories
 * 打开 categories 文件夹中的 index.md 文件，添加 type 字段，设置为 “categories”。
 * 接着到主题文件夹下的 _config.yml 配置文件下，找到 menu 模块，把 categories 的注释给去掉。<br/>
 `tags同理 注意：所有文章头部都要添加categories及内容就可以自动分类`
