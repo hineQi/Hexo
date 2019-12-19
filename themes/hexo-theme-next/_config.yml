@@ -154,7 +154,8 @@ links_layout: block
 #links_layout: inline
 links:
   #Title: http://example.com/
-  码云: https://hineqi.gitee.io/
+  GitHub博客: https://hineqi.github.io/
+  码云博客: https://hineqi.gitee.io/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
