@@ -77,6 +77,19 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 主题文件下的_config.yml`注意：不是根目录是主题目录：/themes/主题文件夹名称/_config.yml`
 找到Schemes模块，修改为scheme: Gemini
 
+##### 文章底部分享栏
+主题目录下的_config.yml，定位到`baidushare`
+```
+baidushare:
+  type: button
+```
+注意：Gemini这个主题的样式可能隐藏了baidushare不显示，需要去掉主题目录下/source/css/_schemes/Gemini/index.styl中的hide，并且http://bdimg.share.baidu.com/static/api/js/share.js不支持https,需要下载到本地资源加载
+```
+.post-spread {
+  // hide();
+}
+```
+
 ##### 博客左侧栏设置
 参考文件:[hexo文件参数及其相关说明](https://www.jianshu.com/p/d1dedae4d970)<br/>
 /_config.yml文件配置
