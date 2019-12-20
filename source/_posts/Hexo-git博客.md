@@ -83,7 +83,7 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 baidushare:
   type: button
 ```
-注意：Gemini这个主题的样式可能隐藏了baidushare不显示，需要去掉主题目录下/source/css/_schemes/Gemini/index.styl中的hide，并且http://bdimg.share.baidu.com/static/api/js/share.js不支持https,需要下载到本地资源加载
+注意：Gemini这个主题的样式可能隐藏了baidushare不显示，需要去掉主题目录下/source/css/_schemes/Gemini/index.styl中的hide，并且http://bdimg.share.baidu.com/static/api/js/share.js不支持https,需要参考https://github.com/hrwhisper/baiduShare
 ```
 .post-spread {
   // hide();
