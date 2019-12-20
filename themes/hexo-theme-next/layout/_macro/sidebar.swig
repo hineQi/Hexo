@@ -46,16 +46,14 @@
 
           <nav class="site-state motion-element">
 
-            {% if config.archive_dir != '/' and site.posts.length > 0 %}
+            {% if site.posts.length > 0 %}
+              {% set archivesPageQuery = site.pages.find({type: 'archives'}, {lean: true}) %}
+              {% set hasArchivesPage = archivesPageQuery.length > 0 %}
               <div class="site-state-item site-state-posts">
-              {% if theme.menu.archives %}
-                <a href="{{ url_for(theme.menu.archives).split('||')[0] | trim }}">
-              {% else %}
-                <a href="{{ url_for(config.archive_dir) }}">
-              {% endif %}
+                {% if hasArchivesPage %}<a href="{{ url_for(archivesPageQuery[0].path) }}">{% endif %}
                   <span class="site-state-item-count">{{ site.posts.length }}</span>
                   <span class="site-state-item-name">{{ __('state.posts') }}</span>
-                </a>
+                {% if hasArchivesPage %}</a>{% endif %}
               </div>
             {% endif %}
 

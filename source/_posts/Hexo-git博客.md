@@ -32,10 +32,13 @@ Github生成仓库Pages：注意`只能是 name.github.io格式仓库`<br/>
 ##### Hexo相关命令
 初始化：空文件夹下执行>>>hexo init
 创建新文章页：根目录中>>>hexo new "文章名字"
+创建新草稿页：根目录中>>>hexo new draft "文章名字"
+发布草稿文章：根目录下>>>hexo publish "文章名字"
 创建功能文件：根目录中>>>hexo new page categories/tags (创建Hexo功能文件)
 清空静态页面：根目录中>>>hexo clean (部署不生效可以先clean下)
 生成静态页面：根目录中>>>hexo g
 启动本地服务：根目录中>>>hexo s
+预览草稿服务：根目录中>>>hexo s -draft
 提交部署服务：根目录中>>>hexo deploy
 
 ##### 下载主题
@@ -58,6 +61,16 @@ Github生成仓库Pages：注意`只能是 name.github.io格式仓库`<br/>
     title: a
     date: 2019-04-14 23:10:17
     ---
+```
+##### 文章引用图片
+前提：修改根目录下_config.yml中的`post_asset_folder: true`，new 新建的文章就会自动新建一个同名文件夹可以放资源
+- 安装Hexo图片引用插件
+```
+npm install https://github.com/CodeFalling/hexo-asset-image --save
+```
+- 文章中引用图片
+```
+![图片信息](文章名/图片名.jpg)
 ```
 
 ##### 主题风格
