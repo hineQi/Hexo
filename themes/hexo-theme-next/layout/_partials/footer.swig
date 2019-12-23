@@ -48,3 +48,9 @@
 #}</div>
 {% endif %}
 -->
+
+{% include "./footer-music.swig" %}
+
+<script type="text/javascript">
+console.log("\n %c 作者 %c 齐海阳 \n","color: #fadfa3; background: #030307; padding:5px 0;","background: #fadfa3; padding:5px 0;");
+</script>

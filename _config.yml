@@ -113,3 +113,7 @@ search:
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 plugins: hexo-generate-feed
+
+# 音乐
+aplayer:
+  meting: true

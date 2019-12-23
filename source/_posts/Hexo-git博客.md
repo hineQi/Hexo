@@ -90,6 +90,42 @@ baidushare:
 }
 ```
 
+##### 增加歌单页面
+- 安装插件
+```
+npm install hexo-tag-aplayer --save
+```
+- 添加歌单页
+```
+hexo new page playlist
+```
+- 新生成的根目录下/source/playlist/index.md
+meting标签具体详细参数参考：[hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md)
+```
+    ---
+    title: 歌单
+    date: 2019-12-23 11:17:35
+    type: "playlist"
+    ---
+    {% meting "996769039" "xiami" "playlist" "autoplay" "theme:#555" "mutex:true" "listmaxheight:340px" "preload:auto" %}
+```
+- 在根目录`_config.yml`中添加
+```
+# 音乐
+aplayer:
+  meting: true
+```
+- 在主题目录下`_config.yml`添加
+```
+menu:
+  playlist: /playlist/|| music
+```
+- 在`zh-Hans.yml`中找到menu添加中文显示
+```
+menu:
+  playlist: 歌单
+```
+
 ##### 博客左侧栏设置
 参考文件:[hexo文件参数及其相关说明](https://www.jianshu.com/p/d1dedae4d970)<br/>
 /_config.yml文件配置
