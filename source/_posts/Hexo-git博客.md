@@ -38,7 +38,7 @@ Github生成仓库Pages：注意`只能是 name.github.io格式仓库`<br/>
 清空静态页面：根目录中>>>hexo clean (部署不生效可以先clean下)
 生成静态页面：根目录中>>>hexo g
 启动本地服务：根目录中>>>hexo s
-预览草稿服务：根目录中>>>hexo s -draft
+预览草稿服务：根目录中>>>hexo s --draft
 提交部署服务：根目录中>>>hexo deploy
 
 ##### 下载主题
