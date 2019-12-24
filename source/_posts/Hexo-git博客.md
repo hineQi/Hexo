@@ -73,6 +73,11 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 ![图片信息](文章名/图片名.jpg)
 ```
 
+##### 文章引用自己的文章链接
+```
+格式: {% post_link 文件名 链接文字 %}, 链接文字可省略
+```
+
 ##### 主题风格
 主题文件下的_config.yml`注意：不是根目录是主题目录：/themes/主题文件夹名称/_config.yml`
 找到Schemes模块，修改为scheme: Gemini
