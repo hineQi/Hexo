@@ -82,6 +82,9 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 主题文件下的_config.yml`注意：不是根目录是主题目录：/themes/主题文件夹名称/_config.yml`
 找到Schemes模块，修改为scheme: Gemini
 
+##### 添加评论功能插件
+[Leancloud+Valine打造Hexo个人博客极简评论系统](https://www.cnblogs.com/Timesi/p/9556236.html)
+
 ##### 文章底部分享栏
 主题目录下的_config.yml，定位到`baidushare`
 ```

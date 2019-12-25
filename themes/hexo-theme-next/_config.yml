@@ -385,12 +385,12 @@ changyan:
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
 valine:
-  enable: false
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
+  enable: true
+  appid: NUAuNAlRrjBktM6TSeNFINey-gzGzoHsz
+  appkey: H6gEqptu6V8t2e4Td9XvnsPS
   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
-  placeholder: Just go go # comment box placeholder
+  verify: true # Verification code
+  placeholder: 兄弟想说什么说什么！ # comment box placeholder
   avatar: mm # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
