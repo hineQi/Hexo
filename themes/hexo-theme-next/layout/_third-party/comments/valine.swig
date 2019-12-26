@@ -1,7 +1,7 @@
 {% if theme.valine.enable and theme.valine.appid and theme.valine.appkey %}
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 
-    {% set valine_uri = '/js/src/Valine.min.js' %}  //这里改为从本地加载
+    {% set valine_uri = '/js/src/Valine.min.js' %}
     {% if theme.vendors.valine %}
       {% set valine_uri = theme.vendors.valine %}
     {% endif %}
@@ -21,10 +21,9 @@
         appKey: '{{ theme.valine.appkey }}',
         placeholder: '{{ theme.valine.placeholder }}',
         avatar:'{{ theme.valine.avatar }}',
-        guest_info:['nick'] ,  //评论者只需要提供评论的昵称即可
+        guest_info:['nick'] ,
         pageSize:'{{ theme.valine.pageSize }}' || 10,
     });
-    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {

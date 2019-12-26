@@ -85,6 +85,10 @@ npm install https://github.com/CodeFalling/hexo-asset-image --save
 ##### 添加评论功能插件
 [Leancloud+Valine打造Hexo个人博客极简评论系统](https://www.cnblogs.com/Timesi/p/9556236.html)
 
+##### 统计功能
+[hexo 集成 字数统计插件](https://www.jianshu.com/p/81626e0d7d29)
+[Hexo添加字数统计、阅读时长](https://www.jianshu.com/p/baea8c95e39b)
+
 ##### 文章底部分享栏
 主题目录下的_config.yml，定位到`baidushare`
 ```
