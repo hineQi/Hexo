@@ -370,6 +370,7 @@ plugins: hexo-generate-feed
 ###### 社交小图标设置
 - 在主题目录下_config.yml中搜索Social
 - 图标可以在[Font Awesome Icon](https://fontawesome.com/icons?from=io)查找
+  中文[Font Awesome Icon](http://www.fontawesome.com.cn)
 ###### 友情链接设置
 - 在主题目录下_config.yml中搜索links_title
 ###### 去掉底部Hexo相关信息
