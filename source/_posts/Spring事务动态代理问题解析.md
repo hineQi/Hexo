@@ -1,5 +1,8 @@
 ---
 title: Spring事务动态代理问题解析
+description: 
+    1.在项目实现中经常会出现各种层级调用然后事务混乱不知道会不会回滚，会不会影响其他任务处理事务<br>
+    2.简单解释项目中使用SpringAOP代理事务的特点
 tags:
   - 事务
 categories:
