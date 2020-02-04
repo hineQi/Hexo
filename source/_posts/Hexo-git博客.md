@@ -26,7 +26,9 @@ Github生成仓库Pages：注意`只能是 name.github.io格式仓库`<br/>
 #### 安装npm(Nodejs)
 >[ubuntu安装最新版node和npm](https://www.jianshu.com/p/f2592d106aac)<br/>
 [Windows安装使用npm（Nodejs）](https://blog.csdn.net/han0373/article/details/80606487)
-
+[Mac- npm 安装与更新](https://www.jianshu.com/p/3a8ea8c21543)
+#### 安装hexo
+>npm install -g hexo-cli
 #### 开始配置Hexo
 
 ##### Hexo相关命令
