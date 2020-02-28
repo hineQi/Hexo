@@ -5,7 +5,7 @@ tags:
   - VPN
   - MAC
 categories:
-  - - 学习
+  - - 参考文件
     - Mac
 date: 2020-02-11 16:00:47
 ---

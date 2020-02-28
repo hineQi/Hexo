@@ -4,11 +4,12 @@ tags:
   - Mac
   - 已损坏
 categories:
-  - - 学习
+  - - 参考文件
     - Mac
 date: 2020-02-10 23:19:11
 ---
 
+###方法一：
 1.开启安全隐私中的任何来源
 ```
 sudo spctl --master-disable
@@ -17,3 +18,5 @@ sudo spctl --master-disable
 ```
 sudo xattr -r -d com.apple.quarantine /Applications/WebStorm.app
 ```
+###方法二
+
