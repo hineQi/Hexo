@@ -37,6 +37,7 @@ docker port d6403a52907a[容器ID]
 > 查看容器内部标准日志输出
 ```
 docker logs -f d6403a52907a[容器ID]
+docker logs -f --since="2020-03-26T09:46:31" --tail=10 4eac9eda8950[容器ID]
 
 -f: 让 docker logs 像使用 tail -f 一样来一直实时输出容器内部的标准输出。
 ```
@@ -128,7 +129,7 @@ hine/ubuntu:v1:指定要创建的目标镜像名
 docker build -t hine/centos:6.7 .
 
 -t:指定创建的目标镜像名
-.:Dockerfile文件所在目录，可指定Dockerfile绝对路径
+.:Dockerfile文件所在目录，可指定Dockerfile绝对路径，会将此目录打包上传给docker
 ```
 > 为指定镜像添加标签
 ```
