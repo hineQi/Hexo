@@ -1,7 +1,15 @@
 ---
-title: Mac基本命令
+title: Mac运行提示已损坏解决办法
 tags:
+  - Mac
+  - 终端
+categories:
+  - - 参考文件
+    - Mac
+date: 2020-02-10 23:19:11
 ---
+
+
 > 删除
 ```
 删除空目录
@@ -20,7 +28,19 @@ cp -R /System/Library/Extensions/* /User/用户名/Desktop/backup
 ```
 mv /System/Library/Extensions/AppleHDA.kext /System/Library/Extensions/backup
 ```
-> 删除当前命令行
+> 删除当前命令行快捷键
 ```
 Ctrl + u
+```
+> 终端清空所有命令
+```
+command + K
+```
+> 终端清除到上一个命令
+```
+command + L
+```
+> 查看本机IP
+```
+ifconfig | grep "inet"
 ```

@@ -11,6 +11,7 @@ description: Docker的一些基本命令总结
 ---
 
 ### Docker容器使用
+
 > 创建并启动运行一个新容器
 ```
 docker run -itd --name hineUbuntu --network test-net ubuntu /bin/bash
@@ -143,6 +144,7 @@ docker push username/ubuntu:18.04
 ```
 
 ### Docker容器互联
+
 > 查看docker所有网络
 ```
 docker network ls
@@ -157,3 +159,10 @@ docker network create -d bridge test-net
 ```
 docker run -itd --name test1 --network test-net ubuntu /bin/bash
 ```
+
+### Docker Compose
+```
+docker-compose up
+docker-compose up -d
+```
+
